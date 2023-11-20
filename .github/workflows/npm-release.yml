@@ -31,7 +31,7 @@ jobs:
           git config --local user.name "GitHub Action"
 
       - name: Update package version
-        run: npm version patch
+        run: npm version 1.0.${GITHUB_RUN_NUMBER}
 
       - name: Build
         run: pnpm run build
