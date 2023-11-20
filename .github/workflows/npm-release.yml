@@ -18,8 +18,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Install pnpm
         run: pnpm install
+
+      - name: Install dependencies
+        run: npm install -g pnpm
 
       - name: Update package version
         run: npm version patch
