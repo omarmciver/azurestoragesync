@@ -13,13 +13,13 @@ Azure Storage Sync is a Node.js package designed to synchronize files between a 
 
 Global installation and usage:
 ```bash
-npm install -g @omarmciver/azurestoragesync # install
-azurestoragesync # run - first time will create a config.json file in the current directory
+npm install -g @omarmciver/azurestoragesync
+azurestoragesync
 ```
 
 On demand usage:
 ```bash
-npx @omarmciver/azurestoragesync # run - first time will create a config.json file in the current directory
+npx @omarmciver/azurestoragesync
 ```
 
 **NOTE:** It will always use the config.json in the current working directory.
