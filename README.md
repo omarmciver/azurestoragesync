@@ -9,15 +9,27 @@ Azure Storage Sync is a Node.js package designed to synchronize files between a 
 - Change detection based on last modified date.
 - Easy configuration and setup.
 
-## Installation
+## Installation and Usage
 
+Global installation and usage:
 ```bash
-npm install @omarmciver/azurestoragesync
+npm install -g @omarmciver/azurestoragesync # install
+azurestoragesync # run - first time will create a config.json file in the current directory
 ```
 
-## Usage
+On demand usage:
+```bash
+npx @omarmciver/azurestoragesync # run - first time will create a config.json file in the current directory
+```
+
+**NOTE:** It will always use the config.json in the current working directory.
+
+## Configuration
 
 To use Azure Storage Sync, create a configuration file (`config.json`) with your Azure Storage account details and the paths you want to synchronize.
+
+The first time you run the script, it will create a `config.json` file in the current directory. Modify as required and then run the command again.
+
 
 ### Example `config.json`
 
@@ -41,13 +53,8 @@ To use Azure Storage Sync, create a configuration file (`config.json`) with your
 }
 ```
 
-### Starting the Sync
 
-Run the synchronization script with the path to your `config.json`:
 
-```bash
-node sync.js path/to/config.json
-```
 
 ## Contributing
 
