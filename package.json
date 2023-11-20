@@ -5,7 +5,7 @@
   "description": "Folder watcher that will sync files to n Azure storage account",
   "main": "dist/watcher.js",
   "scripts": {
-    "build": "tsc  && cp config.template.json ./dist",
+    "build": "tsc  && copyfiles config.template.json ./dist",
     "prepublishOnly": "pnpm run build",
     "watch": "node dist/watcher.js",
     "debug": "pnpm run build && pnpm run watch"
@@ -24,6 +24,7 @@
   "dependencies": {
     "@azure/storage-blob": "^12.17.0",
     "chokidar": "^3.5.3",
+    "copyfiles": "^2.4.1",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
