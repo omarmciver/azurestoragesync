@@ -1,0 +1,8 @@
+/dist
+.vscode/
+/node_modules/
+*.tmp
+*.bak
+*.swp
+config.json
+fileStates.json

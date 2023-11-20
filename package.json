@@ -1,0 +1,32 @@
+{
+  "name": "@omarmciver/azurestoragesync",
+  "type": "module",
+  "version": "1.0.6",
+  "description": "Folder watcher that will sync files to n Azure storage account",
+  "main": "dist/watcher.js",
+  "scripts": {
+    "build": "tsc  && cp config.template.json ./dist",
+    "prepublishOnly": "pnpm run build",
+    "watch": "node dist/watcher.js",
+    "debug": "pnpm run build && pnpm run watch"
+  },
+  "bin": {
+    "azurestoragesync": "./dist/watcher.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "secrets.template.json"
+  ],
+  "keywords": [],
+  "author": "Omar McIver",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/storage-blob": "^12.17.0",
+    "chokidar": "^3.5.3",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.2"
+  }
+}

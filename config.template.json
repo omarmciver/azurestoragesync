@@ -1,0 +1,17 @@
+{
+    "azureStorage": {
+      "accountName": "accountName",
+      "accessKey": "accessKey"
+    },
+    "watchPaths": [
+      {
+        "localPath": "path/to/dir1",
+        "containerPath": "alias1"
+      },
+      {
+        "localPath": "path/to/dir2",
+        "containerPath": "alias2"
+      }
+    ]
+  }
+  
