@@ -1,9 +1,33 @@
 {
   "name": "@omarmciver/azurestoragesync",
   "type": "module",
-  "version": "1.0.9",
+  "version": "1.0.0",
   "description": "Folder watcher that will sync files to n Azure storage account",
   "main": "dist/watcher.js",
+  "homepage": "https://github.com/omarmciver/azurestoragesync",
+  "funding": {
+    "type": "coffee",
+    "url": "https://www.buymeacoffee.com/omarmciver"
+  },
+  "contributors": [
+    {
+      "name": "Omar McIver",
+      "url": "https://www.omarmciver.com"
+    }
+  ],
+  "keywords": [
+    "azure",
+    "storage",
+    "sync",
+    "watcher",
+    "folder",
+    "blob",
+    "container"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omarmciver/azurestoragesync"
+  },
   "scripts": {
     "build": "tsc  && copyfiles config.template.json ./dist",
     "prepublishOnly": "pnpm run build",
@@ -18,7 +42,6 @@
     "README.md",
     "secrets.template.json"
   ],
-  "keywords": [],
   "author": "Omar McIver",
   "license": "MIT",
   "dependencies": {
