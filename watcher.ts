@@ -47,9 +47,6 @@ ensureConfigFile(configFileFullPath, configTemplatePath);
 // Read configuration from file
 const config: Config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
-// Perform initial sync
-await initialSync();
-
 // Setup watchers for each path
 config.watchPaths.forEach(watchPath => {
   const watcher = chokidar.watch(watchPath.localPath, {
@@ -142,15 +139,6 @@ function getAllFiles(dirPath: string, arrayOfFiles: string[] = []): string[] {
   return arrayOfFiles;
 }
 
-// Function to perform initial sync
-async function initialSync() {
-  for (const watchPath of config.watchPaths) {
-    const allFiles = getAllFiles(watchPath.localPath);
-    for (const file of allFiles) {
-      await syncToAzure(file, watchPath.containerPath);
-    }
-  }
-}
 
 async function syncToAzure(localPath: string, containerPath: string): Promise<void> {
   // Normalize the local path
