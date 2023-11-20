@@ -23,6 +23,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
 
       - name: Update package version
         run: npm version patch
