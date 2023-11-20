@@ -22,6 +22,8 @@
     "watcher",
     "folder",
     "blob",
+    "windows",
+    "linux",
     "container"
   ],
   "repository": {

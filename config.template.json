@@ -5,11 +5,11 @@
     },
     "watchPaths": [
       {
-        "localPath": "path/to/dir1",
+        "localPath": "path/to/linux/dir",
         "containerPath": "alias1"
       },
       {
-        "localPath": "path/to/dir2",
+        "localPath": "d:\\path\\to\\windows\\dir",
         "containerPath": "alias2"
       }
     ]
