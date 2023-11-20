@@ -1,7 +1,7 @@
 {
   "name": "@omarmciver/azurestoragesync",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Folder watcher that will sync files to n Azure storage account",
   "main": "dist/watcher.js",
   "scripts": {

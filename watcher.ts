@@ -1,8 +1,9 @@
 import chokidar from 'chokidar';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import path from 'path';
+import path, { sep, join, normalize } from 'path';
 import { BlobServiceClient, BlockBlobClient, StorageSharedKeyCredential } from '@azure/storage-blob';
+
 
 interface AzureStorageConfig {
   accountName: string;
@@ -125,6 +126,7 @@ function createBlobServiceClient(config: AzureStorageConfig): BlobServiceClient 
   return blobServiceClient;
 }
 
+
 // Function to list all files in a directory recursively
 function getAllFiles(dirPath: string, arrayOfFiles: string[] = []): string[] {
   const files = fs.readdirSync(dirPath);
@@ -151,18 +153,20 @@ async function initialSync() {
 }
 
 async function syncToAzure(localPath: string, containerPath: string): Promise<void> {
+   // Normalize paths to use the system-specific path separator
+   localPath = normalize(localPath);
+   const basePath = config.watchPaths.find(watchPath => normalize(watchPath.localPath) === normalize(localPath.substring(0, watchPath.localPath.length)))?.localPath;
+ 
+   if (!basePath) {
+     console.error('Base path not found for ' + localPath);
+     return;
+   }
+ 
+   // Ensure consistent path separators and remove the base path
+   let blobName = localPath.substring(basePath.length).replace(/[\\\/]+/g, sep);
+
   const blobServiceClient = createBlobServiceClient(config.azureStorage);
   const containerClient = blobServiceClient.getContainerClient(containerPath);
-
-  // Calculate the blob name by removing the base path
-  const basePath = config.watchPaths.find(watchPath => localPath.startsWith(watchPath.localPath))?.localPath;
-  if (!basePath) throw new Error('Base path not found for ' + localPath);
-
-  let blobName = localPath.substring(basePath.length);
-  if (blobName.startsWith('/')) {
-    blobName = blobName.substring(1); // Remove leading slash if present
-  }
-
   const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
   if (await needsSync(blockBlobClient, localPath)) {
