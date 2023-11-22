@@ -2,6 +2,8 @@
 
 Azure Storage Sync is a Node.js package designed to synchronize files between a local file system and Azure Blob Storage. Works on linux and windows filesystems.
 
+[View at npmjs.com](https://www.npmjs.com/package/@omarmciver/azurestoragesync)
+
 ## Features
 
 - Real-time synchronization from local file system to Azure Blob Storage.
