@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@azure/storage-blob':
     specifier: ^12.17.0
-    version: 12.17.0
+    version: 12.18.0
   chokidar:
     specifier: ^3.5.3
     version: 3.6.0
@@ -103,8 +103,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@azure/storage-blob@12.17.0:
-    resolution: {integrity: sha512-sM4vpsCpcCApagRW5UIjQNlNylo02my2opgp0Emi8x888hZUvJ3dN69Oq20cEGXkMUWnoCrBaB0zyS3yeB87sQ==}
+  /@azure/storage-blob@12.18.0:
+    resolution: {integrity: sha512-BzBZJobMoDyjJsPRMLNHvqHycTGrT8R/dtcTx9qUFcqwSRfGVK9A/cZ7Nx38UQydT9usZGbaDCN75QRNjezSAA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@azure/abort-controller': 1.1.0
